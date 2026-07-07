@@ -1,0 +1,3 @@
+from pyscf.mcscf import mc1step as mc1step
+
+def kernel(casscf, mo_coeff, tol: float = 1e-07, conv_tol_grad=None, ci0=None, callback=None, verbose=None, dump_chk: bool = True): ...

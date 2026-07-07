@@ -1,0 +1,9 @@
+from _typeshed import Incomplete
+from pyscf import __config__ as __config__, lib as lib
+from pyscf.gto import mole as mole
+
+SYMPREC: Incomplete
+
+def search_point_group_ops(cell, tol=...): ...
+def search_space_group_ops(cell, rotations=None, tol=...): ...
+def get_crystal_class(cell, ops=None, tol=...): ...

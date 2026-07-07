@@ -1,0 +1,9 @@
+from pyscf import ao2mo as ao2mo, dft as dft, fci as fci, gto as gto, lib as lib, mcpdft as mcpdft, mcscf as mcscf
+from pyscf.fci import direct_spin1 as direct_spin1
+from pyscf.lib import logger as logger, temporary_env as temporary_env
+from pyscf.mcscf.addons import StateAverageMCSCFSolver as StateAverageMCSCFSolver, state_average as state_average, state_average_mix as state_average_mix, state_average_mix_ as state_average_mix_
+from scipy import linalg as linalg
+
+def coulomb_tensor(mc, mo_coeff=None, ci=None, h2eff=None, eris=None): ...
+def e_coul(mc, mo_coeff=None, ci=None, h2eff=None, eris=None): ...
+def e_coul_o0(mc, ci): ...

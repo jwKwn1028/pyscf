@@ -1,0 +1,1 @@
+from pyscf.data.nucprop import ISOTOPE_GYRO as ISOTOPE_GYRO, g_factor_to_gyromagnetic_ratio as g_factor_to_gyromagnetic_ratio, get_nuc_g_factor as get_nuc_g_factor

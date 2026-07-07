@@ -1,0 +1,13 @@
+from _typeshed import Incomplete
+from pyscf import __config__ as __config__, lib as lib
+from pyscf.gto import mole as mole
+from pyscf.lib import logger as logger
+from pyscf.pbc import tools as tools
+
+libpbc: Incomplete
+INTERPOLATION_ORDER: Incomplete
+
+def bspline(u, ng, n: int = 4, deriv: int = 0): ...
+def particle_mesh_ewald(cell, ew_eta=None, ew_cut=None, order=...): ...
+def particle_mesh_ewald_nuc_grad(cell, ew_eta=None, ew_cut=None, order=...): ...
+def ewald_nuc_grad(cell, ew_eta=None, ew_cut=None): ...

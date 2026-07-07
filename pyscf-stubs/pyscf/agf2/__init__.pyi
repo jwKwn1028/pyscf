@@ -1,0 +1,9 @@
+from pyscf import lib as lib, scf as scf
+from pyscf.agf2 import aux_space as aux_space, dfragf2 as dfragf2, dfuagf2 as dfuagf2, ragf2 as ragf2, ragf2_slow as ragf2_slow, uagf2 as uagf2, uagf2_slow as uagf2_slow
+from pyscf.agf2.aux_space import AuxiliarySpace as AuxiliarySpace, GreensFunction as GreensFunction, SelfEnergy as SelfEnergy
+
+aux = aux_space
+
+def AGF2(mf, nmom=(None, 0), frozen=None, mo_energy=None, mo_coeff=None, mo_occ=None): ...
+def RAGF2(mf, nmom=(None, 0), frozen=None, mo_energy=None, mo_coeff=None, mo_occ=None): ...
+def UAGF2(mf, nmom=(None, 0), frozen=None, mo_energy=None, mo_coeff=None, mo_occ=None): ...

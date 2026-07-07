@@ -1,0 +1,26 @@
+from _typeshed import Incomplete
+from pyscf import gto as gto, lib as lib
+from pyscf.grad import rhf as rhf_grad
+from pyscf.lib import logger as logger
+from pyscf.mp import mp2 as mp2
+from pyscf.scf import cphf as cphf
+
+def grad_elec(mp_grad, t2, atmlst=None, verbose=...): ...
+def has_frozen_orbitals(post_hf): ...
+def as_scanner(grad_mp): ...
+
+class MP2_GradScanner(lib.GradScanner):
+    def __init__(self, g) -> None: ...
+    def __call__(self, mol_or_geom, **kwargs): ...
+    @property
+    def converged(self): ...
+
+class Gradients(rhf_grad.GradientsBase):
+    grad_elec = grad_elec
+    atmlst: Incomplete
+    de: Incomplete
+    def kernel(self, t2=None, atmlst=None, verbose=None): ...
+    def grad_nuc(self, mol=None, atmlst=None): ...
+    as_scanner = as_scanner
+    to_gpu = lib.to_gpu
+Grad = Gradients

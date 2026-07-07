@@ -1,0 +1,3 @@
+from pyscf.scf.stability import dhf_stability as dhf_stability
+
+def x2chf_stability(mf, verbose=None, return_status: bool = False): ...

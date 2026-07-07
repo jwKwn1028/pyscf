@@ -1,0 +1,3 @@
+from pyscf.dft.sap_data import sap_Zeff as sap_Zeff
+
+def sap_effective_charge(Z, r): ...

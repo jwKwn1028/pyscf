@@ -1,0 +1,26 @@
+from _typeshed import Incomplete
+from pyscf import __config__ as __config__, lib as lib
+from pyscf.lib import logger as logger
+from pyscf.pbc.scf import kghf as kghf, khf_ksymm as khf_ksymm
+
+def get_jk(mf, cell=None, dm_kpts=None, hermi: int = 0, kpts=None, kpts_band=None, with_j: bool = True, with_k: bool = True, **kwargs): ...
+def get_occ(mf, mo_energy_kpts=None, mo_coeff_kpts=None): ...
+def eig(kmf, h_kpts, s_kpts, overwrite: bool = False, x=None): ...
+
+class KsymAdaptedKGHF(khf_ksymm.KsymAdaptedKSCF, kghf.KGHF):
+    get_jk = get_jk
+    get_occ = get_occ
+    energy_elec: Incomplete
+    get_init_guess: Incomplete
+    init_guess_by_minao: Incomplete
+    init_guess_by_atom: Incomplete
+    init_guess_by_chkfile: Incomplete
+    to_ks: Incomplete
+    convert_from_: Incomplete
+    def __init__(self, cell, kpts=..., exxdiv=..., use_ao_symmetry: bool = True) -> None: ...
+    def get_hcore(self, cell=None, kpts=None): ...
+    def get_ovlp(self, cell=None, kpts=None): ...
+    def eig(self, h_kpts, s_kpts, overwrite: bool = False, x=None): ...
+    def get_orbsym(self, mo_coeff=None, s=None): ...
+    orbsym: Incomplete
+KGHF = KsymAdaptedKGHF

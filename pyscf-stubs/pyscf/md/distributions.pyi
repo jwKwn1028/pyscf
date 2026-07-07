@@ -1,0 +1,3 @@
+from pyscf import data as data, md as md
+
+def MaxwellBoltzmannVelocity(mol, T: float = 298.15, rng=...): ...

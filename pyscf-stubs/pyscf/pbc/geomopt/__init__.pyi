@@ -1,0 +1,3 @@
+from pyscf.geomopt.addons import as_pyscf_method as as_pyscf_method
+
+def optimize(method, *args, **kwargs): ...

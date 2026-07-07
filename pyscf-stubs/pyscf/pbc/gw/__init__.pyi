@@ -1,0 +1,6 @@
+from pyscf.pbc import scf as scf
+from pyscf.pbc.gw import krgw_ac as krgw_ac, krgw_cd as krgw_cd, kugw_ac as kugw_ac
+
+def KRGW(mf, freq_int: str = 'ac', frozen=None): ...
+def KUGW(mf, freq_int: str = 'ac', frozen=None): ...
+KGW = KRGW

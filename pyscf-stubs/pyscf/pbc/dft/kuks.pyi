@@ -1,0 +1,23 @@
+from _typeshed import Incomplete
+from pyscf import __config__ as __config__, lib as lib
+from pyscf.lib import logger as logger
+from pyscf.pbc.dft import gen_grid as gen_grid, krks as krks, multigrid as multigrid, rks as rks, uks as uks
+from pyscf.pbc.dft.krks import get_rho as get_rho
+from pyscf.pbc.scf import khf as khf, kuhf as kuhf
+
+def get_veff(ks, cell=None, dm=None, dm_last: int = 0, vhf_last: int = 0, hermi: int = 1, kpts=None, kpts_band=None): ...
+def energy_elec(mf, dm_kpts=None, h1e_kpts=None, vhf=None): ...
+def gen_response(mf, mo_coeff=None, mo_occ=None, with_j: bool = True, hermi: int = 0, max_memory=None, with_nlc: bool = True): ...
+
+class KUKS(rks.KohnShamDFT, kuhf.KUHF):
+    get_veff = get_veff
+    energy_elec = energy_elec
+    get_rho = get_rho
+    gen_response = gen_response
+    initialize_grids: Incomplete
+    def __init__(self, cell, kpts=None, xc: str = 'LDA,VWN', exxdiv=...) -> None: ...
+    def dump_flags(self, verbose=None): ...
+    def Gradients(self): ...
+    def to_hf(self): ...
+    multigrid_numint: Incomplete
+    to_gpu = lib.to_gpu

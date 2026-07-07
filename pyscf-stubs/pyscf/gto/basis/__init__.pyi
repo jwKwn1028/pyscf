@@ -1,0 +1,17 @@
+from _typeshed import Incomplete
+from pyscf.gto.basis import parse_nwchem
+
+__all__ = ['ALIAS', 'GTH_ALIAS', 'PP_ALIAS', 'parse', 'parse_ecp', 'load', 'load_ecp', 'load_pseudo', 'optimize_contraction', 'to_general_contraction']
+
+ALIAS: Incomplete
+GTH_ALIAS: Incomplete
+PP_ALIAS: Incomplete
+
+def parse(string, symb=None, optimize=...): ...
+def parse_ecp(string, symb=None): ...
+optimize_contraction = parse_nwchem.optimize_contraction
+to_general_contraction = parse_nwchem.to_general_contraction
+
+def load(filename_or_basisname, symb, optimize=...): ...
+def load_ecp(filename_or_basisname, symb): ...
+def load_pseudo(filename_or_basisname, symb): ...

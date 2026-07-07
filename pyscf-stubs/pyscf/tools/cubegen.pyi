@@ -1,0 +1,29 @@
+from _typeshed import Incomplete
+from pyscf import __config__ as __config__, df as df, gto as gto, lib as lib
+from pyscf.dft import numint as numint
+
+RESOLUTION: Incomplete
+BOX_MARGIN: Incomplete
+ORIGIN: Incomplete
+EXTENT: Incomplete
+
+def density(mol, outfile, dm, nx: int = 80, ny: int = 80, nz: int = 80, resolution=..., margin=...): ...
+def orbital(mol, outfile, coeff, nx: int = 80, ny: int = 80, nz: int = 80, resolution=..., margin=...): ...
+def mep(mol, outfile, dm, nx: int = 80, ny: int = 80, nz: int = 80, resolution=..., margin=...): ...
+
+class Cube:
+    mol: Incomplete
+    box: Incomplete
+    boxorig: Incomplete
+    nx: Incomplete
+    ny: Incomplete
+    nz: Incomplete
+    xs: Incomplete
+    ys: Incomplete
+    zs: Incomplete
+    def __init__(self, mol, nx: int = 80, ny: int = 80, nz: int = 80, resolution=..., margin=..., origin=..., extent=...) -> None: ...
+    def get_coords(self): ...
+    def get_ngrids(self): ...
+    def get_volume_element(self): ...
+    def write(self, field, fname, comment=None) -> None: ...
+    def read(self, cube_file): ...

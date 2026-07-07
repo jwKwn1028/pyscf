@@ -1,0 +1,26 @@
+from _typeshed import Incomplete
+from pyscf import __config__ as __config__, lib as lib
+from pyscf.geomopt.addons import as_pyscf_method as as_pyscf_method, dump_mol_geometry as dump_mol_geometry, symmetrize as symmetrize
+from pyscf.grad.rhf import GradientsBase as GradientsBase
+
+INCLUDE_GHOST: Incomplete
+ASSERT_CONV: Incomplete
+
+def to_berny_geom(mol, include_ghost=...): ...
+def to_berny_log(pyscf_log): ...
+def kernel(method, assert_convergence=..., include_ghost=..., callback=None, **kwargs): ...
+def optimize(method, assert_convergence=..., include_ghost=..., callback=None, **kwargs): ...
+
+class GeometryOptimizer(lib.StreamObject):
+    method: Incomplete
+    callback: Incomplete
+    params: Incomplete
+    converged: bool
+    max_cycle: int
+    def __init__(self, method) -> None: ...
+    @property
+    def mol(self): ...
+    @mol.setter
+    def mol(self, x) -> None: ...
+    def kernel(self, params=None): ...
+    optimize = kernel

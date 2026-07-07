@@ -1,0 +1,23 @@
+from _typeshed import Incomplete
+from pyscf import __config__ as __config__, ao2mo as ao2mo, lib as lib
+from pyscf.cc import ccsd as ccsd
+from pyscf.lib import logger as logger
+from pyscf.mp import mp2 as mp2
+
+BLKMIN: Incomplete
+MEMORYMIN: Incomplete
+
+def update_amps(cc, t1, t2, eris): ...
+def energy(cc, t1=None, t2=None, eris=None): ...
+
+class RCCSD(ccsd.CCSD):
+    def kernel(self, t1=None, t2=None, eris=None, mbpt2: bool = False): ...
+    t1: Incomplete
+    def ccsd(self, t1=None, t2=None, eris=None, mbpt2: bool = False): ...
+    def ao2mo(self, mo_coeff=None): ...
+    energy = energy
+    update_amps = update_amps
+    def solve_lambda(self, t1=None, t2=None, l1=None, l2=None, eris=None): ...
+
+class _ChemistsERIs(ccsd._ChemistsERIs):
+    def get_ovvv(self, *slices): ...

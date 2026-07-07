@@ -1,0 +1,6 @@
+from pyscf.lib import H5FileWrap as H5FileWrap
+from pyscf.lib.chkfile import dump as dump, load as load, load_mol as load_mol
+from pyscf.mcscf.addons import StateAverageMixFCISolver as StateAverageMixFCISolver
+
+def load_mcscf(chkfile): ...
+def dump_mcscf(mc, chkfile=None, key: str = 'mcscf', e_tot=None, mo_coeff=None, ncore=None, ncas=None, nelecas=None, mo_occ=None, mo_energy=None, e_cas=None, ci_vector=None, casdm1=None, overwrite_mol: bool = True) -> None: ...

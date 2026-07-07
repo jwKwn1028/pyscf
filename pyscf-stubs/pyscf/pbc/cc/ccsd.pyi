@@ -1,0 +1,19 @@
+from _typeshed import Incomplete
+from pyscf import lib as lib
+from pyscf.cc import gccsd as gccsd, rccsd as rccsd, uccsd as uccsd
+from pyscf.pbc import mp as mp, scf as scf
+
+class RCCSD(rccsd.RCCSD):
+    t1: Incomplete
+    def ccsd(self, t1=None, t2=None, eris=None, mbpt2: bool = False): ...
+    def ao2mo(self, mo_coeff=None): ...
+
+class UCCSD(uccsd.UCCSD):
+    t1: Incomplete
+    def ccsd(self, t1=None, t2=None, eris=None, mbpt2: bool = False): ...
+    def ao2mo(self, mo_coeff=None): ...
+
+class GCCSD(gccsd.GCCSD):
+    t1: Incomplete
+    def ccsd(self, t1=None, t2=None, eris=None, mbpt2: bool = False): ...
+    def ao2mo(self, mo_coeff=None): ...

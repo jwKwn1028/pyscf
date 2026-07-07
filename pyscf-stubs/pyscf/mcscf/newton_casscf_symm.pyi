@@ -1,0 +1,13 @@
+from _typeshed import Incomplete
+from pyscf import fci as fci, lib as lib
+from pyscf.lib import logger as logger
+from pyscf.mcscf import casci_symm as casci_symm, mc1step as mc1step, newton_casscf as newton_casscf
+
+class CASSCF(newton_casscf.CASSCF):
+    __doc__: Incomplete
+    fcisolver: Incomplete
+    def __init__(self, mf_or_mol, ncas: int = 0, nelecas: int = 0, ncore=None, frozen=None) -> None: ...
+    mo_coeff: Incomplete
+    def kernel(self, mo_coeff=None, ci0=None, callback=None, _kern=None): ...
+    def uniq_var_indices(self, nmo, ncore, ncas, frozen): ...
+    def rotate_mo(self, mo, u, log=None): ...

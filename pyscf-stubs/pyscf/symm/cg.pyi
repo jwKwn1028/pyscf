@@ -1,0 +1,3 @@
+from numpy import float64
+
+def cg_spin(l: int, jdouble: int, mjdouble: int, spin: int) -> float64: ...

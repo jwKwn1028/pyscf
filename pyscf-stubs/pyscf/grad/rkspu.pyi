@@ -1,0 +1,9 @@
+from pyscf import gto as gto, lib as lib
+from pyscf.dft.rkspu import reference_mol as reference_mol
+from pyscf.grad import rks as rks_grad
+
+def generate_first_order_local_orbitals(mol, minao_ref: str = 'MINAO'): ...
+
+class Gradients(rks_grad.Gradients):
+    def get_veff(self, mol=None, dm=None): ...
+    def extra_force(self, atom_id, envs): ...

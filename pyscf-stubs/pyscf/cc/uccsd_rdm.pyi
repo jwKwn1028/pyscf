@@ -1,0 +1,6 @@
+from pyscf import ao2mo as ao2mo, lib as lib
+
+einsum = lib.einsum
+
+def make_rdm1(mycc, t1, t2, l1, l2, ao_repr: bool = False, with_frozen: bool = True, with_mf: bool = True): ...
+def make_rdm2(mycc, t1, t2, l1, l2, ao_repr: bool = False, with_frozen: bool = True, with_dm1: bool = True): ...

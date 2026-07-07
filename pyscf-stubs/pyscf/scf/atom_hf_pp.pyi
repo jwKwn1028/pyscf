@@ -1,0 +1,16 @@
+from _typeshed import Incomplete
+from pyscf import gto as gto, lib as lib, scf as scf
+from pyscf.dft import gen_grid as gen_grid, numint as numint
+from pyscf.scf import atom_hf as atom_hf, rohf as rohf
+
+def get_pp_loc_part1_rs(mol, coords): ...
+def get_pp_loc_part2(mol): ...
+def get_pp_loc(mol): ...
+def get_pp_nl(mol): ...
+
+class AtomSCFPP(atom_hf.AtomSphAverageRHF):
+    def get_hcore(self, mol=None): ...
+
+class AtomHF1ePP(rohf.HF1e, AtomSCFPP):
+    eig: Incomplete
+    get_hcore: Incomplete

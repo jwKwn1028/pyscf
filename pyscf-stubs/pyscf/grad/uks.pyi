@@ -1,0 +1,19 @@
+from _typeshed import Incomplete
+from pyscf import __config__ as __config__, dft as dft, lib as lib
+from pyscf.dft import gen_grid as gen_grid, numint as numint
+from pyscf.grad import uhf as uhf_grad
+from pyscf.lib import logger as logger
+
+def get_veff(ks_grad, mol=None, dm=None): ...
+def get_vxc(ni, mol, grids, xc_code, dms, relativity: int = 0, hermi: int = 1, max_memory: int = 2000, verbose=None): ...
+def get_vxc_full_response(ni, mol, grids, xc_code, dms, relativity: int = 0, hermi: int = 1, max_memory: int = 2000, verbose=None): ...
+
+class Gradients(uhf_grad.Gradients):
+    grid_response: Incomplete
+    grids: Incomplete
+    nlcgrids: Incomplete
+    def __init__(self, mf) -> None: ...
+    def dump_flags(self, verbose=None): ...
+    get_veff = get_veff
+    def extra_force(self, atom_id, envs): ...
+Grad = Gradients

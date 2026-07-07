@@ -1,0 +1,29 @@
+from _typeshed import Incomplete
+from collections.abc import Generator
+from pyscf import __config__ as __config__, lib as lib
+from pyscf.lib import logger as logger
+
+def expmat(a): ...
+
+class CIAHOptimizerMixin:
+    conv_tol_grad: Incomplete
+    max_stepsize: Incomplete
+    max_iters: Incomplete
+    kf_interval: Incomplete
+    kf_trust_region: Incomplete
+    ah_start_tol: Incomplete
+    ah_start_cycle: Incomplete
+    ah_level_shift: Incomplete
+    ah_conv_tol: Incomplete
+    ah_lindep: Incomplete
+    ah_max_cycle: Incomplete
+    ah_trust_region: Incomplete
+    def gen_g_hop(self, u) -> None: ...
+    def pack_uniq_var(self, mat): ...
+    def unpack_uniq_var(self, v): ...
+    def extract_rotation(self, dr, u0: int = 1): ...
+    def get_grad(self, u) -> None: ...
+    def cost_function(self, u) -> None: ...
+
+def rotate_orb_cc(iah, u0, conv_tol_grad=None, verbose=...) -> Generator[Incomplete, Incomplete, Incomplete]: ...
+def davidson_cc(h_op, g_op, precond, x0, tol: float = 1e-10, xs=[], ax=[], max_cycle: int = 30, lindep: float = 1e-14, dot=..., verbose=...) -> Generator[Incomplete]: ...

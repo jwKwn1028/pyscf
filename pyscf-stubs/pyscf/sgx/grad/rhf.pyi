@@ -1,0 +1,26 @@
+from _typeshed import Incomplete
+from collections.abc import Generator
+from pyscf import __config__ as __config__, gto as gto, lib as lib
+from pyscf.df.grad import rhf as dfrhf_grad
+from pyscf.df.incore import aux_e2 as aux_e2
+from pyscf.dft import gen_grid as gen_grid
+from pyscf.grad.rks import get_dw_partition_sorted as get_dw_partition_sorted, grids_response_cc as grids_response_cc
+from pyscf.lib import logger as logger
+from pyscf.sgx import sgx as sgx, sgx_jk as sgx_jk
+from pyscf.sgx.sgx_jk import BLKSIZE as BLKSIZE, SGX_BLKSIZE as SGX_BLKSIZE
+
+def get_jk_grad(sgx, dm, hermi: int = 1, with_j: bool = True, with_k: bool = True, direct_scf_tol: float = 1e-13): ...
+def scalable_grids_response_setup(grids, mol=None): ...
+def scalable_grids_response_cc(grids, blksize) -> Generator[Incomplete]: ...
+def get_k_grad_only(sgx, dm, hermi: int = 1, direct_scf_tol: float = 1e-13): ...
+def get_jk(mf_grad, mol=None, dm=None, hermi: int = 1, vhfopt=None, with_j: bool = True, with_k: bool = True, direct_scf_tol=..., omega=None): ...
+
+class _GradientsMixin:
+    sgx_grid_response: bool
+    def __init__(self, mf) -> None: ...
+    def check_sanity(self) -> None: ...
+    def get_j(self, mol=None, dm=None, hermi: int = 0, omega=None): ...
+
+class Gradients(_GradientsMixin, dfrhf_grad.Gradients):
+    get_jk = get_jk
+Grad = Gradients
