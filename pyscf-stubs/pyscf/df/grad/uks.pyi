@@ -2,11 +2,8 @@ from _typeshed import Incomplete
 from pyscf import lib as lib
 from pyscf.grad import uks as uks_grad
 from pyscf.lib import logger as logger
-from pyscf.gto.mole import Mole
-from pyscf.lib.numpy_helper import NPArrayWithTag
-from typing import Optional
 
-def get_veff(ks_grad: "Gradients", mol: Optional[Mole]=None, dm: Optional[NPArrayWithTag]=None) -> NPArrayWithTag: ...
+def get_veff(ks_grad, mol=None, dm=None): ...
 
 class Gradients(uks_grad.Gradients):
     def __init__(self, mf) -> None: ...

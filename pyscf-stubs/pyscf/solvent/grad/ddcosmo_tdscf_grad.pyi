@@ -5,13 +5,17 @@ from pyscf.lib import logger as logger
 from pyscf.scf import cphf as cphf, ucphf as ucphf
 from pyscf.solvent import ddcosmo as ddcosmo
 from pyscf.solvent.grad import ddcosmo_grad as ddcosmo_grad
+from numpy import ndarray
+from pyscf.solvent.ddcosmo import ddCOSMO
+from pyscf.solvent.ddpcm import ddPCM
+from typing import Dict, List, Tuple, Union
 
 def make_grad_object(td_base_method): ...
 
 class WithSolventGrad:
     de_solvent: Incomplete
     de_solute: Incomplete
-    def __init__(self, grad_method) -> None: ...
+    def __init__(self, grad_method: Union[Incomplete, Incomplete, Incomplete, Incomplete]) -> None: ...
     def undo_solvent(self): ...
     def grad_elec(self, xy, singlet, atmlst=None): ...
     de: Incomplete

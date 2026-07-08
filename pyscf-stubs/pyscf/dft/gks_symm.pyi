@@ -3,10 +3,11 @@ from pyscf.dft import gks as gks, rks as rks
 from pyscf.dft.numint2c import NumInt2C as NumInt2C
 from pyscf.lib import logger as logger
 from pyscf.scf import ghf_symm as ghf_symm
+from pyscf.gto.mole import Mole
 
 class GKS(rks.KohnShamDFT, ghf_symm.GHF):
-    def __init__(self, mol, xc: str = 'LDA,VWN') -> None: ...
-    def dump_flags(self, verbose=None): ...
+    def __init__(self, mol: Mole, xc: str = 'LDA,VWN') -> None: ...
+    def dump_flags(self, verbose: None=None) -> "GKS": ...
     get_veff = gks.get_veff
     energy_elec = rks.energy_elec
     @property

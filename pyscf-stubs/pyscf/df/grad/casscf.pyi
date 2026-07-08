@@ -6,14 +6,8 @@ from pyscf.grad import casci as casci_grad
 from pyscf.lib import logger as logger
 from pyscf.mcscf.addons import StateAverageMCSCFSolver as StateAverageMCSCFSolver
 from scipy import linalg as linalg
-from numpy import ndarray
-from pyscf.fci.direct_spin1 import FCIvector
-from pyscf.gto.mole import Mole
-from pyscf.lib.logger import Logger
-from pyscf.lib.numpy_helper import NPArrayWithTag
-from typing import Optional, Tuple
 
-def grad_elec(mc_grad: "Gradients", mo_coeff: Optional[ndarray]=None, ci: Optional[FCIvector]=None, atmlst: None=None, verbose: Optional[Logger]=None) -> ndarray: ...
+def grad_elec(mc_grad, mo_coeff=None, ci=None, atmlst=None, verbose=None): ...
 def as_scanner(mcscf_grad): ...
 
 class CASSCF_GradScanner(lib.GradScanner):
@@ -26,10 +20,10 @@ class Gradients(casci_grad.Gradients):
     auxbasis_response: bool
     def __init__(self, mc) -> None: ...
     grad_elec = grad_elec
-    def get_jk(self, mol: Optional[Mole]=None, dm: Optional[Tuple[ndarray, ndarray]]=None, hermi: int = 0) -> Tuple[NPArrayWithTag, NPArrayWithTag]: ...
+    def get_jk(self, mol=None, dm=None, hermi: int = 0): ...
     atmlst: Incomplete
     de: Incomplete
-    def kernel(self, mo_coeff: Optional[ndarray]=None, ci: Optional[FCIvector]=None, atmlst: None=None, verbose: Optional[int]=None) -> ndarray: ...
+    def kernel(self, mo_coeff=None, ci=None, atmlst=None, verbose=None): ...
     as_scanner = as_scanner
     to_gpu = lib.to_gpu
 Grad = Gradients
