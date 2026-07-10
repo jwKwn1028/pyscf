@@ -3,14 +3,11 @@ from pyscf import lib as lib
 from pyscf.pbc import scf as scf
 from pyscf.pbc.tdscf.rhf import TDBase as TDBase
 from pyscf.tdscf import uhf as uhf
-from numpy import ndarray
-from pyscf.pbc.dft.uks import UKS
-from typing import Tuple
 
-def get_ab(mf: UKS) -> Tuple[Tuple[ndarray, ndarray, ndarray], Tuple[ndarray, ndarray, ndarray]]: ...
+def get_ab(mf): ...
 
 class TDA(TDBase):
-    def get_ab(self, mf: None=None) -> Tuple[Tuple[ndarray, ndarray, ndarray], Tuple[ndarray, ndarray, ndarray]]: ...
+    def get_ab(self, mf=None): ...
     singlet: Incomplete
     get_init_guess: Incomplete
     kernel: Incomplete

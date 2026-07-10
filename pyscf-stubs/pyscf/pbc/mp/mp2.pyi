@@ -1,14 +1,10 @@
 from pyscf import lib as lib
 from pyscf.mp import gmp2 as gmp2, mp2 as mp2, ump2 as ump2
 from pyscf.pbc import scf as scf
-from pyscf.mp.mp2 import _ChemistsERIs
-from pyscf.pbc.scf.hf import RHF
-from pyscf.pbc.scf.uhf import UHF
-from typing import Callable, Union
 
 class RMP2(mp2.RMP2):
-    def __init__(self, mf: RHF, frozen: None=None, mo_coeff: None=None, mo_occ: None=None) -> None: ...
-    def ao2mo(self, mo_coeff: None=None) -> _ChemistsERIs: ...
+    def __init__(self, mf, frozen=None, mo_coeff=None, mo_occ=None) -> None: ...
+    def ao2mo(self, mo_coeff=None): ...
 
 class UMP2(ump2.UMP2):
     def __init__(self, mf, frozen=None, mo_coeff=None, mo_occ=None) -> None: ...

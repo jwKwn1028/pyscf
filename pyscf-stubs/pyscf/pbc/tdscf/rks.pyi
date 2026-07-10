@@ -4,9 +4,6 @@ from pyscf.pbc import dft as dft
 from pyscf.pbc.lib.kpts_helper import gamma_point as gamma_point
 from pyscf.pbc.tdscf import rhf as rhf
 from pyscf.tdscf import rks as rks
-from pyscf.pbc.dft.rks import RKS
-from pyscf.pbc.tdscf.rhf import TDHF
-from typing import Union
 
 class TDA(rhf.TDA): ...
 RPA = rhf.TDHF
@@ -19,4 +16,4 @@ class CasidaTDDFT(TDDFT):
     kernel: Incomplete
 TDDFTNoHybrid = CasidaTDDFT
 
-def tddft(mf: RKS, frozen: None=None) -> Union[CasidaTDDFT, TDHF]: ...
+def tddft(mf, frozen=None): ...

@@ -5,5 +5,5 @@ from pyscf.md import distributions as distributions, integrators as integrators
 SEED: Incomplete
 rng: Incomplete
 
-def set_seed(seed) -> None: ...
+def set_seed(seed: int) -> None: ...
 NVE = integrators.VelocityVerlet

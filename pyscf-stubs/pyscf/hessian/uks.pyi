@@ -3,9 +3,13 @@ from pyscf import dft as dft, lib as lib
 from pyscf.dft import numint as numint
 from pyscf.hessian import rhf as rhf_hess, uhf as uhf_hess
 from pyscf.lib import logger as logger
+from numpy import ndarray
+from pyscf.dft.uks import UKS
+from pyscf.lib.logger import Logger
+from typing import List, Optional, Tuple, Union
 
-def partial_hess_elec(hessobj, mo_energy=None, mo_coeff=None, mo_occ=None, atmlst=None, max_memory: int = 4000, verbose=None): ...
-def make_h1(hessobj, mo_coeff, mo_occ, chkfile=None, atmlst=None, verbose=None): ...
+def partial_hess_elec(hessobj: "Hessian", mo_energy: Optional[ndarray]=None, mo_coeff: Optional[ndarray]=None, mo_occ: Optional[ndarray]=None, atmlst: Optional[Union[range, List[int]]]=None, max_memory: int = 4000, verbose: Optional[Logger]=None) -> ndarray: ...
+def make_h1(hessobj: "Hessian", mo_coeff: ndarray, mo_occ: ndarray, chkfile: None=None, atmlst: Optional[Union[range, List[int]]]=None, verbose: Optional[Logger]=None) -> Tuple[ndarray, ndarray]: ...
 
 XX: Incomplete
 XY: Incomplete
@@ -30,7 +34,7 @@ ZZZ: Incomplete
 class Hessian(rhf_hess.HessianBase):
     grids: Incomplete
     grid_response: bool
-    def __init__(self, mf) -> None: ...
+    def __init__(self, mf: UKS) -> None: ...
     hess_elec = uhf_hess.hess_elec
     gen_hop = uhf_hess.gen_hop
     solve_mo1: Incomplete

@@ -4,14 +4,20 @@ from pyscf.dft import gen_grid as gen_grid, numint as numint
 from pyscf.grad import rks as rks
 from pyscf.hessian import rhf as rhf_hess
 from pyscf.lib import logger as logger
+from numpy import ndarray
+from pyscf.dft.gen_grid import Grids
+from pyscf.dft.rks import RKS
+from pyscf.gto.mole import Mole
+from pyscf.lib.logger import Logger
+from typing import List, Optional, Union
 
 min_grid_blksize: Incomplete
 NLC_REMOVE_ZERO_RHO_GRID_THRESHOLD: float
 libdft: Incomplete
 contract: Incomplete
 
-def partial_hess_elec(hessobj, mo_energy=None, mo_coeff=None, mo_occ=None, atmlst=None, max_memory: int = 4000, verbose=None): ...
-def make_h1(hessobj, mo_coeff, mo_occ, chkfile=None, atmlst=None, verbose=None): ...
+def partial_hess_elec(hessobj: "Hessian", mo_energy: Optional[ndarray]=None, mo_coeff: Optional[ndarray]=None, mo_occ: Optional[ndarray]=None, atmlst: Optional[Union[range, List[int]]]=None, max_memory: int = 4000, verbose: Optional[Logger]=None) -> ndarray: ...
+def make_h1(hessobj: "Hessian", mo_coeff: ndarray, mo_occ: ndarray, chkfile: None=None, atmlst: Optional[Union[range, List[int]]]=None, verbose: Optional[Logger]=None) -> ndarray: ...
 
 XX: Incomplete
 XY: Incomplete
@@ -47,7 +53,7 @@ def get_vnlc_resp(mf, mol, mo_coeff, mo_occ, dm1s, max_memory): ...
 class Hessian(rhf_hess.HessianBase):
     grids: Incomplete
     grid_response: bool
-    def __init__(self, mf) -> None: ...
+    def __init__(self, mf: RKS) -> None: ...
     partial_hess_elec = partial_hess_elec
     hess_elec = rhf_hess.hess_elec
     make_h1 = make_h1
