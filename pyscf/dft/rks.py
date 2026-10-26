@@ -491,13 +491,10 @@ class KohnShamDFT:
         The total energy and wave-function are the same as them in the input
         mean-field object.
         '''
-        from pyscf.dft import numint2c
         mf = scf.addons.convert_to_ghf(self)
         if xc is not None:
             mf.xc = xc
         mf.converged = xc == self.xc and mf.converged
-        if not isinstance(mf._numint, numint2c.NumInt2C):
-            mf._numint = numint2c.NumInt2C()
         return mf
 
     def reset(self, mol=None):
@@ -546,7 +543,9 @@ class KohnShamDFT:
 
     def check_sanity(self):
         out = super().check_sanity()
-        if self.do_nlc() and self.do_disp() and self._numint.libxc.is_nlc(self.xc):
+        if (self.do_nlc() and self.do_disp() and self._numint.libxc.is_nlc(self.xc)
+            # COACH combines VV10 with three-body contributions from D4
+            and self.xc.upper() != 'COACH'):
             import warnings
             warnings.warn(
                 f'nlc-type xc {self.xc} and disp {self.disp} may lead to'
